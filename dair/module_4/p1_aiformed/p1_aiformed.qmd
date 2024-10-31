@@ -235,6 +235,13 @@ Kitchen and Recipe
 
 ---
 
+### Real life example
+
+![](neupane_table1.png)
+* Different OS parse data slightly differently. 
+* Bhandari Neupane, Jayanti, Ram P. Neupane, Yuheng Luo, Wesley Y. Yoshida, Rui Sun, and Philip G. Williams. 2019. “Characterization of Leptazolines a–d, Polar Oxazolines from the Cyanobacterium Leptolyngbya Sp., Reveals a Glitch with the ‘Willoughby–Hoye’ Scripts for Calculating NMR Chemical Shifts.” Organic Letters 21 (20): 8449–53.
+---
+
 ## Reproducible analogy
 
 ![](repro.jpg)
@@ -250,14 +257,6 @@ Kitchen and Recipe
 
 ---
 
-## Summary
-
-- ML vs. AI: ML will live on your computer. AI will be usable.
-- Extract/Transform/Load data -> Training model(s) -> Serve / Evaluate
-- Evaluate your model outputs on external independent test set
-- Understand ethics, reproducibility and transparency in your AI modelling
-
----
 
 ## Scenario 1
 
@@ -301,8 +300,10 @@ Kitchen and Recipe
 
 - What is our digital debt? Can this cope with AI?
     + Is our pathways aligned with this?
-    + if AI said patient's going to deteriorate, what are we going to?
-    + But, AI is significantly 'scale-able', doesnt go on annual leave?
+    + if AI said patient's going to deteriorate, what are we going to? Can our pathways ready?
+    + But, AI is significantly 'scale-able', doesnt go on annual leave? but what if it completely crashes tomorrow
+
+---
 
 ## A word on technical debt
 
@@ -311,3 +312,15 @@ Kitchen and Recipe
 
 [Technical Debt paper by google](https://research.google.com/pubs/archive/43146.pdf)
 
+![](dependency_2x.png)
+
+---
+
+## Summary
+
+- ML vs. AI: ML will live on your computer. AI will be usable.
+- Extract/Transform/Load data -> Training model(s) -> Serve / Evaluate
+- Evaluate your model outputs on external independent test set
+- Understand ethics, reproducibility and transparency in your AI modelling
+
+---
