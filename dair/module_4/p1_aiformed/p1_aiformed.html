@@ -8,7 +8,7 @@
 <link href="p1_aiformed_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="p1_aiformed_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="p1_aiformed_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.3.450">
+  <meta name="generator" content="quarto-1.5.57">
 
   <meta name="author" content="Teddy HLA">
   <title>Module 4: AI For Medicine</title>
@@ -156,7 +156,8 @@
   }
 
   .callout.callout-titled .callout-body > .callout-content > :last-child {
-    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
   }
 
   .callout.callout-titled .callout-icon::before {
@@ -341,97 +342,70 @@ Teddy HLA
 <ul>
 <li>Appreciate machine learning vs.&nbsp;AI</li>
 <li>Understand the high-level steps needed to train a statistical model</li>
-<li>Rationale for ‘verifying your model findings’ and how to using test set</li>
-<li>understand dataset bias and clinical factors</li>
+<li>Rationale for “verifying your model findings” and how to use a test set</li>
+<li>Understand dataset bias and clinical factors</li>
 </ul>
 </section>
 <section id="scenario-1" class="slide level2">
 <h2>Scenario 1</h2>
 <ul>
 <li>You are a <em>GP</em>.</li>
-<li>You use an AI-based clinical decision support(CDS) tool to help manage patients with ‘breast lump’ presentations.</li>
-<li>The tool helps decide amongst options <em>‘invasive investigation’</em>, <em>‘imaging’</em> or ‘watchful waiting’. You and colleagues have <strong>good experience</strong> with the tool, your patients have reported satisfactory outcomes.</li>
-<li>A 17-year old male patient presents with ‘breast lump’.</li>
+<li>You use an AI-based clinical decision support (CDS) tool to help manage patients with “breast lump” presentations.</li>
+<li>The tool helps decide amongst options: <strong>invasive investigation</strong>, <strong>imaging</strong>, or <strong>watchful waiting</strong>.</li>
+<li>A 17-year-old male patient presents with a “breast lump.”</li>
 <li>Should you <em>trust</em> the model recommendations for this patient?</li>
 </ul>
 </section>
 <section id="scenario-2" class="slide level2">
 <h2>Scenario 2</h2>
 <ul>
-<li><p>You are a <em>clinical lead</em> for your organisation.</p></li>
-<li><p>You want to improve pathway for acutely unwell patients.</p></li>
-<li><p>You have <strong>100,000 GBP</strong> budget for this.</p></li>
-<li><p>Your team analysed all available options and presented two options.</p></li>
-<li><p>Option 1: ‘recruiting <strong>two</strong> specialsit nurses’</p></li>
-<li><p>Option 2: ‘Deployment of <strong>AI-based</strong> clinical decision support and risk management system’</p></li>
-<li><p>Which option would you choose?</p></li>
+<li>You are a <em>clinical lead</em> for your organization.</li>
+<li>You want to improve pathways for acutely unwell patients.</li>
+<li>You have a <strong>100,000 GBP</strong> budget for this.</li>
+<li>Your team presents two options:
+<ul>
+<li>Option 1: Recruit <strong>two specialist nurses</strong></li>
+<li>Option 2: Deploy an <strong>AI-based CDS and risk management system</strong></li>
+</ul></li>
+<li>Which option would you choose?</li>
 </ul>
 </section>
-<section id="big-data-machine-learning-and-artifical-intelligence" class="slide level2">
-<h2>Big Data, Machine Learning and Artifical Intelligence</h2>
+<section id="big-data-machine-learning-and-artificial-intelligence" class="slide level2">
+<h2>Big Data, Machine Learning, and Artificial Intelligence</h2>
 <ul>
-<li>Big data &gt;&gt; ML/AI</li>
-<li>6 <strong>V</strong> of big data; ‘volume’, ‘variety’, ‘velocity’, ‘veracity’, ‘value’ and ‘variability’</li>
-<li>I would like to add ‘vulnerability’</li>
+<li>Big data → ML/AI</li>
+<li>The six <strong>Vs</strong> of big data: <strong>volume</strong>, <strong>variety</strong>, <strong>velocity</strong>, <strong>veracity</strong>, <strong>value</strong>, and <strong>variability</strong></li>
+<li>I would like to add <strong>vulnerability</strong></li>
 </ul>
 </section>
 <section id="machine-learning-vs.-artificial-intelligence" class="slide level2">
 <h2>Machine Learning vs.&nbsp;Artificial Intelligence</h2>
 <ul>
-<li>4 types of machine learning
+<li>Four types of machine learning:
 <ul>
-<li>supervised machine learning</li>
-<li>unsupervised machine learning</li>
-<li>Deep Learning (Image recognition)</li>
+<li>Supervised learning</li>
+<li>Unsupervised learning</li>
+<li>Deep Learning (e.g., image recognition)</li>
 <li>Reinforcement Learning</li>
 </ul></li>
-<li>Rule of thumb: If you fit a model and it sits on your computer then it is a ‘ML’ model.</li>
-<li>If this model is deployed and can be used by clinician then it is ‘AI’</li>
-</ul>
-</section>
-<section id="machine-learning-and-philosophy-of-learning" class="slide level2">
-<h2>Machine Learning and Philosophy of Learning</h2>
+<li>Rule of thumb:
 <ul>
-<li>Learning? Why do we learn?</li>
-<li>Difference between learning and memorising</li>
-<li>What does it mean mathematically?</li>
-<li>What does training mean for you and for a machine learning model?</li>
-</ul>
-</section>
-<section id="learning-vs.-memorising" class="slide level2">
-<h2>Learning vs.&nbsp;Memorising</h2>
-<ul>
-<li>Using an example of ‘adding and symbol <strong>+</strong>’
-<ul>
-<li>You learn to add and you use a symbol <strong>+</strong></li>
-<li>So you can <em>generalise</em> and you dont need to memorise 1002 + 2003 = 3005</li>
-<li>You <em>train</em> by doing exercises such as 1+1 = 2</li>
-<li>Your teacher corrects if you get 1+1 = 3</li>
-<li>You will be examined on new material to ensure you can generalise and apply your learnings</li>
-</ul></li>
-<li>Similarly, you will use a <strong>training data</strong> to train the model so it can <em>learn</em> and apply in a <strong>general</strong> context.</li>
-</ul>
-</section>
-<section id="what-do-learning-mean-for-computer" class="slide level2">
-<h2>What do learning mean for computer?</h2>
-<p><span class="math display">\[
-Y = f(x)
-\]</span></p>
-<ul>
-<li>Find function f(x) given a set of variables (x) and their outcomes (Y) using a training dataset.
-<ul>
-<li>Loss function = similar to making mistakes on training</li>
-<li>Optimiser = sort of like teacher, goal is to minimise loss function.</li>
+<li>If the model only lives on your computer, it’s a <strong>ML model</strong>.</li>
+<li>If it’s deployed for clinician use, it’s <strong>AI</strong>.</li>
 </ul></li>
 </ul>
 </section>
-<section id="complexity-of-model" class="slide level2">
-<h2>Complexity of model</h2>
+<section id="machine-learning-process" class="slide level2">
+<h2>Machine Learning Process</h2>
+
+<img data-src="mleng.jpg" class="r-stretch"></section>
+<section id="complexity-of-the-model" class="slide level2">
+<h2>Complexity of the Model</h2>
 <ul>
-<li>in ML, you need to be able to trade off between ‘bias’ and ‘variance’
+<li>In ML, you need to trade off between <strong>bias</strong> and <strong>variance</strong>:
 <ul>
-<li>very biased model = assuming everyone is sick or assuming 50% is sick</li>
-<li>very variant model = responding to every noise.</li>
+<li>Very biased model = assuming everyone is sick</li>
+<li>High variant model = responding to every noise</li>
 </ul></li>
 </ul>
 
@@ -448,217 +422,312 @@ Y = f(x)
 <h2>MLOps : steps in ML</h2>
 <ul>
 <li>Get the data, Train the model, Evaluate the model!</li>
-<li>WIN :)</li>
+<li>WIN :</li>
 <li>Getting the data onto your computer</li>
 <li>Train the model on your computer</li>
 <li>Show to your boss, publish!</li>
 </ul>
 <p><strong>Right??</strong></p>
 </section>
-<section id="mlops-in-a-nutshell" class="slide level2">
-<h2>MLOps in a nutshell</h2>
+<section id="machine-learning-and-philosophy-of-learning" class="slide level2">
+<h2>Machine Learning and Philosophy of Learning</h2>
 <ul>
-<li><p>Machine Learning + Operations</p></li>
-<li><p>MLOps</p></li>
-<li><p>ETL pipeline (Extract, Transform and Load)</p></li>
-<li><p>Train the model consecutively (Compute)</p></li>
-<li><p>Serve the model to user</p></li>
-<li><p>All in cloud, real-time, continuous deployment</p></li>
+<li><strong>Learning?</strong> Why do we learn?</li>
+<li>Difference between learning and memorizing</li>
+<li>What does it mean mathematically?</li>
+<li>What does training mean for you and for a machine learning model?</li>
+</ul>
+</section>
+<section id="learning-vs.-memorizing" class="slide level2">
+<h2>Learning vs.&nbsp;Memorizing</h2>
+<p>Using an example of <strong>adding and the symbol +</strong>:</p>
+<ul>
+<li><p>You learn to add and use the symbol <strong>+</strong></p></li>
+<li><p>This allows you to <em>generalize</em> rather than memorizing specific sums, like <code>1002 + 2003 = 3005</code></p></li>
+<li><p>You <em>train</em> by practicing simple exercises like <code>1 + 1 = 2</code></p></li>
+<li><p>Your teacher corrects if you get <code>1 + 1 = 3</code></p></li>
+<li><p>You are then examined on new material to ensure you can generalize and apply your learnings</p></li>
+<li><p><strong>Similarly:</strong> You use a <strong>training dataset</strong> to train the model so it can <em>learn</em> and apply in a <strong>general</strong> context.</p></li>
+</ul>
+</section>
+<section id="what-does-learning-mean-for-a-computer" class="slide level2">
+<h2>What does learning mean for a computer?</h2>
+<p><span class="math display">\[
+Y = f(x)
+\]</span></p>
+<ul>
+<li>Find function <strong>f(x)</strong> given a set of variables (<strong>x</strong>) and their outcomes (<strong>Y</strong>) using a training dataset
+<ul>
+<li><strong>Loss function</strong> = similar to making mistakes on training</li>
+<li><strong>Optimizer</strong> = acts like a teacher, with the goal to minimize the loss function</li>
+</ul></li>
+</ul>
+</section>
+<section id="machine-learning-process-1" class="slide level2">
+<h2>Machine Learning Process</h2>
+
+<img data-src="mleng.jpg" class="r-stretch"></section>
+<section id="complexity-of-model" class="slide level2">
+<h2>Complexity of Model</h2>
+<ul>
+<li>In ML, trade-offs exist between <strong>bias</strong> and <strong>variance</strong>:
+<ul>
+<li>A <strong>very biased model</strong> may assume everyone is sick</li>
+<li>A <strong>high variance model</strong> may respond to every noise</li>
+</ul></li>
+</ul>
+
+<img data-src="biasvariance.jpg" class="r-stretch"></section>
+<section id="appreciating-ai-ml-and-statistics" class="slide level2">
+<h2>Appreciating AI, ML, and Statistics</h2>
+
+<img data-src="aimlstats.jpg" class="r-stretch"></section>
+<section id="the-mlops-lifecycle" class="slide level2">
+<h2>The MLOps Lifecycle</h2>
+<ul>
+<li><strong>MLOps</strong> = Machine Learning + Operations</li>
+<li>Key stages include:
+<ul>
+<li><strong>ETL pipeline</strong>: Extract, Transform, and Load data</li>
+<li><strong>Train the model</strong>: Run computations to optimize model performance</li>
+<li><strong>Deploy the model</strong>: Serve it to users in real-time, with continuous deployment</li>
+</ul></li>
 </ul>
 </section>
 <section id="evaluate-your-model-how" class="slide level2">
-<h2>Evaluate your model: how?</h2>
+<h2>Evaluate Your Model: How?</h2>
 <ul>
-<li>Validation of your model is key.</li>
-<li>Validating on ‘training set’ = marking your own home work!</li>
-<li>Thus, you need to do it on a ‘test set’.</li>
-<li>Test set is seperate fresh dataset</li>
-<li>Beware of data leakage</li>
+<li>Validation is key to model reliability:
+<ul>
+<li><strong>Training set validation</strong> = marking your own homework!</li>
+<li><strong>Test set validation</strong> = using a separate, fresh dataset</li>
+</ul></li>
+<li>Beware of <strong>data leakage</strong></li>
 </ul>
 </section>
-<section id="what-is-data-leakage" class="slide level2">
-<h2>What is data leakage?</h2>
+<section id="understanding-data-leakage" class="slide level2">
+<h2>Understanding Data Leakage</h2>
+<p>Example of data leakage in Chest X-Ray (CXR) data:</p>
 <ul>
-<li>Data leakage example in CXR</li>
-<li>CXR for detecting pneumonia?</li>
-<li>Sicker patients will get AP film and in resus</li>
-<li>So, AI model may learn to ‘cheat’ by detecting resus instead of actual pneumonia</li>
+<li>Suppose a model is trained to detect pneumonia
+<ul>
+<li>Sicker patients often get <strong>AP films</strong> and are placed in <strong>resus</strong></li>
+<li>The model might “cheat” by detecting <strong>resus environment</strong> instead of pneumonia itself</li>
+</ul></li>
 </ul>
 
 <img data-src="chest.jpg" class="r-stretch"></section>
-<section id="gold-standards" class="slide level2">
-<h2>Gold standards</h2>
-<p><a href="https://www.bmj.com/content/384/bmj-2023-074821" class="uri">https://www.bmj.com/content/384/bmj-2023-074821</a></p>
-<p><a href="https://www.bmj.com/content/384/bmj-2023-074819" class="uri">https://www.bmj.com/content/384/bmj-2023-074819</a></p>
+<section id="gold-standards-in-medical-ai" class="slide level2">
+<h2>Gold Standards in Medical AI</h2>
+<ul>
+<li>Refer to <a href="https://www.bmj.com/content/384/bmj-2023-074821">this BMJ article on standards</a></li>
+<li>Also, see <a href="https://www.bmj.com/content/384/bmj-2023-074819">related BMJ content</a></li>
+</ul>
 
 <img data-src="extvali.jpg" class="r-stretch"></section>
 <section id="ethics-of-ai" class="slide level2">
 <h2>Ethics of AI</h2>
 <ul>
-<li>AI/ML ethics are complex
+<li>The ethics of AI/ML are complex:
 <ul>
-<li>Should generative AI models such as ChatGPT be allowed when writing research papers?</li>
-<li>Should you make clinical judgement based on AI recommendations?</li>
+<li>Should generative AI models (like ChatGPT) be allowed in research writing?</li>
+<li>Should clinical judgments rely on AI recommendations?</li>
 </ul></li>
-<li>AI/ML dont get it right <em>but</em> humans dont get it right either.
+<li><strong>AI/ML don’t always get it right</strong>, but neither do humans
 <ul>
-<li>Does AI/ML need to be better than <em>humans</em>?</li>
-<li>Which humans? FY1 or average consultant?</li>
+<li>Does AI/ML need to be better than humans?</li>
+<li>Which humans: FY1 or an average consultant?</li>
 </ul></li>
-<li>Multiple examples exist</li>
 </ul>
 </section>
-<section id="bad-ai" class="slide level2">
-<h2>‘Bad’ AI</h2>
+<section id="examples-of-bad-ai" class="slide level2">
+<h2>Examples of ‘Bad’ AI</h2>
 <ul>
-<li>‘AI gaydar paper’ (Wang 2018)</li>
+<li>“AI Gaydar Paper” (Wang 2018)</li>
 </ul>
 
 <img data-src="aigaydar.jpg" class="r-stretch"></section>
 <section id="how-do-we-do-good-stop-bad-ai" class="slide level2">
-<h2>How do we <del>do good</del> <em>stop bad</em> AI</h2>
+<h2>How Do We <del>Do Good</del> <em>Stop Bad</em> AI?</h2>
 <ul>
-<li>Recognise bias and discrimination inherently</li>
-<li>Assume there will be bias and find it</li>
-<li>Maximise individual autonomy and privacy</li>
-<li>Reproducibility and Transparency key</li>
+<li>Recognize inherent biases and discrimination</li>
+<li>Assume bias is present, then find and address it</li>
+<li>Maximize individual autonomy and privacy</li>
+<li>Reproducibility and transparency are crucial</li>
 </ul>
 
 <img data-src="turingway.jpg" class="r-stretch"></section>
 <section id="even-if-ai-is-good" class="slide level2">
-<h2>Even if AI is good?</h2>
+<h2>Even if AI is Good?</h2>
 
-<img data-src="inequality.jpeg" id="fig-inequality" class="r-stretch"><p>NHS app and deprivation <a href="https://informatics.bmj.com/content/30/1/e100809">link to paper</a></p>
+<img data-src="inequality.jpeg" id="fig-inequality" class="r-stretch quarto-figure-center"><p class="caption">
+Figure&nbsp;1
+</p><p><strong>NHS app and deprivation:</strong> See <a href="https://informatics.bmj.com/content/30/1/e100809">this study</a></p>
 </section>
 <section id="reproducibility-an-analogy" class="slide level2">
-<h2>Reproducibility: an analogy</h2>
+<h2>Reproducibility: An Analogy</h2>
 <div id="fig-elephants" class="quarto-layout-panel">
-<figure>
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 50.0%;justify-content: center;">
-<div id="fig-kitchen" class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="kitchen.jpg" data-ref-parent="fig-elephants"></p>
-<figcaption>(a)</figcaption>
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-elephants-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-elephants" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-kitchen" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-subfloat-fig">
+<div aria-describedby="fig-kitchen-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img data-src="kitchen.jpg" id="fig-kitchen" data-ref-parent="fig-elephants">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-kitchen-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a)
+</figcaption>
 </figure>
 </div>
 </div>
-<div class="quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 50.0%;justify-content: center;">
-<div id="fig-recipe" class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="recipe.jpg" data-ref-parent="fig-elephants"></p>
-<figcaption>(b)</figcaption>
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-elephants" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-recipe" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-subfloat-fig">
+<div aria-describedby="fig-recipe-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img data-src="recipe.jpg" id="fig-recipe" data-ref-parent="fig-elephants">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-recipe-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b)
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p></p><figcaption>Figure&nbsp;1: Kitchen and Recipe</figcaption><p></p>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-elephants-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: <strong>Kitchen and Recipe</strong>
+</figcaption>
 </figure>
 </div>
 </section>
-<section class="slide level2">
-
-<h3 id="reproducibility-questions">Reproducibility: questions</h3>
+<section id="reproducibility-important-questions" class="slide level2">
+<h2>Reproducibility: Important Questions</h2>
 <ul>
-<li><p>What type of oven?</p></li>
-<li><p>What mode of oven ? fan vs.&nbsp;gas</p></li>
-<li><p>What kind of oil ? Olive oil vs.&nbsp;rapeseed oil</p></li>
-<li><p>What kind of milk?</p></li>
-<li><p>in ML, what python version, which framework etc.</p></li>
+<li>What type of oven?</li>
+<li>What mode: fan or gas?</li>
+<li>Which oil: olive oil or rapeseed?</li>
+<li>Type of milk?</li>
 </ul>
+<p>In ML: consider details like <strong>Python version</strong> and <strong>framework</strong></p>
 </section>
-<section class="slide level2">
+<section id="real-life-example" class="slide level2">
+<h2>Real-Life Example</h2>
 
-<h3 id="real-life-example">Real life example</h3>
-<p><img data-src="neupane_table1.png"> * Different OS parse data slightly differently. * Bhandari Neupane, Jayanti, Ram P. Neupane, Yuheng Luo, Wesley Y. Yoshida, Rui Sun, and Philip G. Williams. 2019. “Characterization of Leptazolines a–d, Polar Oxazolines from the Cyanobacterium Leptolyngbya Sp., Reveals a Glitch with the ‘Willoughby–Hoye’ Scripts for Calculating NMR Chemical Shifts.” Organic Letters 21 (20): 8449–53.</p>
+<img data-src="neupane_table1.png" class="r-stretch"><p><strong>Different OSs parse data differently</strong><br>
+Reference: Bhandari Neupane et al., “Characterization of Leptazolines a–d” (2019)</p>
 </section>
-<section id="reproducible-analogy" class="slide level2">
-<h2>Reproducible analogy</h2>
+<section id="reproducibility-analogy" class="slide level2">
+<h2>Reproducibility Analogy</h2>
 
 <img data-src="repro.jpg" class="r-stretch"></section>
-<section id="how-to-make-reproducible-research" class="slide level2">
-<h2>How to make reproducible research</h2>
+<section id="how-to-make-research-reproducible" class="slide level2">
+<h2>How to Make Research Reproducible</h2>
 <ul>
-<li>You wont achieve in your first project</li>
-<li>But, you should aim for it.</li>
-<li><a href="https://raps-with-r.dev/" class="uri">https://raps-with-r.dev/</a>
-<ul>
-<li>written for R but principles the same</li>
-</ul></li>
+<li>Aim for reproducibility, even if it’s challenging at first</li>
+<li>Visit <a href="https://raps-with-r.dev/">RAPS with R</a> for reproducibility principles</li>
 </ul>
 </section>
-<section id="scenario-1-1" class="slide level2">
-<h2>Scenario 1</h2>
+<section id="scenario-1-revisited" class="slide level2">
+<h2>Scenario 1 Revisited</h2>
 <ul>
-<li>You are a <em>GP</em>.</li>
-<li>You use an AI-based clinical decision support(CDS) tool to help manage patients with ‘breast lump’ presentations.</li>
-<li>The tool helps decide amongst options <em>‘invasive investigation’</em>, <em>‘imaging’</em> or ‘watchful waiting’. You and colleagues have <strong>good experience</strong> with the tool, your patients have reported satisfactory outcomes.</li>
-<li>A 17-year old male patient presents with ‘breast lump’.</li>
-<li>Should you <em>trust</em> the model recommendations for this patient?</li>
+<li><p>You are a <em>GP</em>.</p></li>
+<li><p>You use an AI-based clinical decision support (CDS) tool to help manage patients with “breast lump” presentations.</p></li>
+<li><p>The tool suggests options like <strong>invasive investigation</strong>, <strong>imaging</strong>, or <strong>watchful waiting</strong>.</p></li>
+<li><p>A 17-year-old male patient presents with a “breast lump.”</p></li>
+<li><p><strong>Question</strong>: Should you <em>trust</em> the model’s recommendations for this patient?</p></li>
 </ul>
 </section>
 <section class="slide level2">
 
-<h3 id="scenario-1-what-do-you-think">Scenario 1 : What do you think?</h3>
+<h3 id="scenario-1-critical-questions">Scenario 1: Critical Questions</h3>
 <ul>
-<li>Is the AI CDS trained on male as well as female images?</li>
-<li>Are they trained for &lt;18-year olds?</li>
-<li>Is the model trained to be ‘sensitive’ or ‘specific’?</li>
-<li>What would your clinical judgement be?</li>
-<li>What is the local governance?</li>
+<li>Was the AI CDS trained on both male and female images?</li>
+<li>Were patients under 18 included in the training set?</li>
+<li>Is the model optimized for <strong>sensitivity</strong> or <strong>specificity</strong>?</li>
+<li>What does your clinical judgment suggest?</li>
+<li>What are the local governance policies regarding AI use?</li>
 </ul>
 </section>
-<section id="scenario-2-1" class="slide level2">
-<h2>Scenario 2</h2>
+<section id="scenario-2-revisited" class="slide level2">
+<h2>Scenario 2 Revisited</h2>
 <ul>
-<li><p>You are a <em>clinical lead</em> for your organisation.</p></li>
-<li><p>You want to improve pathway for acutely unwell patients.</p></li>
-<li><p>You have <strong>100,000 GBP</strong> budget for this.</p></li>
-<li><p>Your team analysed all available options and presented two options.</p></li>
-<li><p>Option 1: ‘recruiting <strong>two</strong> specialist nurses’</p></li>
-<li><p>Option 2: ‘Deployment of <strong>AI-based</strong> clinical decision support and risk management system’</p></li>
-<li><p>Which option would you choose?</p></li>
-</ul>
-</section>
-<section id="scenario-2-what-do-you-think" class="slide level2">
-<h2>Scenario 2: What do you think?</h2>
+<li><p>You are a <em>clinical lead</em> for your organization.</p></li>
+<li><p>Your goal is to improve pathways for acutely unwell patients.</p></li>
+<li><p>You have a <strong>100,000 GBP</strong> budget.</p></li>
+<li><p>Two options are presented:</p>
 <ul>
-<li>What is the best option?</li>
-<li>Nurses would be versatile, can help when wards short.
-<ul>
-<li>will they in reality? will they be happy?</li>
-<li>does that mean they will leave?</li>
+<li><strong>Option 1</strong>: Recruit <strong>two specialist nurses</strong></li>
+<li><strong>Option 2</strong>: Deploy an <strong>AI-based CDS and risk management system</strong></li>
 </ul></li>
-<li>What is our digital debt? Can this cope with AI?
+<li><p><strong>Question</strong>: Which option would you choose?</p></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<h3 id="scenario-2-considerations">Scenario 2: Considerations</h3>
 <ul>
-<li>Is our pathways aligned with this?</li>
-<li>if AI said patient’s going to deteriorate, what are we going to? Can our pathways ready?</li>
-<li>But, AI is significantly ‘scale-able’, doesnt go on annual leave? but what if it completely crashes tomorrow</li>
+<li><strong>Nurses</strong>:
+<ul>
+<li>Would they provide versatility and fill in during staff shortages?</li>
+<li>Would they be happy in their roles, or might they leave?</li>
+</ul></li>
+<li><strong>AI System</strong>:
+<ul>
+<li>Does your organization have the digital infrastructure for AI?</li>
+<li>Are clinical pathways aligned with AI integration?</li>
+<li>If AI flags deterioration, can your pathways respond effectively?</li>
+<li>AI offers scalability and continuous availability, but what if it fails?</li>
 </ul></li>
 </ul>
 </section>
 <section id="a-word-on-technical-debt" class="slide level2">
-<h2>A word on technical debt</h2>
+<h2>A Word on Technical Debt</h2>
 <ul>
-<li>Even google has +++ technical debt</li>
-<li>NHS +++++++</li>
+<li><p>Even Google has significant technical debt</p></li>
+<li><p>The NHS may have even more due to legacy systems and infrastructure</p></li>
+<li><p><strong>Reference</strong>: <a href="https://research.google.com/pubs/archive/43146.pdf">Google’s Technical Debt Paper</a></p></li>
 </ul>
-<p><a href="https://research.google.com/pubs/archive/43146.pdf">Technical Debt paper by google</a></p>
 
 <img data-src="dependency_2x.png" class="r-stretch"></section>
-<section id="summary" class="slide level2">
-<h2>Summary</h2>
+<section id="summary-of-key-concepts" class="slide level2">
+<h2>Summary of Key Concepts</h2>
 <ul>
-<li>ML vs.&nbsp;AI: ML will live on your computer. AI will be usable.</li>
-<li>Extract/Transform/Load data -&gt; Training model(s) -&gt; Serve / Evaluate</li>
-<li>Evaluate your model outputs on external independent test set</li>
-<li>Understand ethics, reproducibility and transparency in your AI modelling</li>
+<li><strong>ML vs.&nbsp;AI</strong>:
+<ul>
+<li>ML models remain on your computer; AI models are deployable.</li>
+</ul></li>
+<li><strong>MLOps Workflow</strong>:
+<ul>
+<li>Extract, Transform, Load → Train models → Serve and Evaluate.</li>
+</ul></li>
+<li><strong>Model Evaluation</strong>:
+<ul>
+<li>Test model outputs on an independent test set for validation.</li>
+</ul></li>
+<li><strong>AI Ethics and Reproducibility</strong>:
+<ul>
+<li>Prioritize transparency, address biases, and ensure reproducibility in AI applications.</li>
+</ul></li>
 </ul>
 </section>
-<section class="slide level2">
-
+<section id="further-reading-and-resources" class="slide level2">
+<h2>Further Reading and Resources</h2>
+<ul>
+<li>For reproducibility guidelines, see <a href="https://the-turing-way.netlify.app/">The Turing Way</a></li>
+<li>More on big data ethics: <a href="https://www.gov.uk/government/publications/data-ethics-framework">Data Ethics Framework</a></li>
+</ul>
+</section>
+<section id="discussion-and-qa" class="slide level2">
+<h2>Discussion and Q&amp;A</h2>
+<ul>
+<li>Let’s discuss any remaining questions on ML/AI in clinical applications!</li>
+</ul>
+<div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
+</div>
 </div>
 </section>
     </div>
@@ -687,7 +756,6 @@ Y = f(x)
       Reveal.initialize({
 'controlsAuto': true,
 'previewLinksAuto': false,
-'smaller': false,
 'pdfSeparateFragments': false,
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
@@ -904,18 +972,7 @@ Y = f(x)
         }
         return false;
       }
-      const clipboard = new window.ClipboardJS('.code-copy-button', {
-        text: function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-        }
-      });
-      clipboard.on('success', function(e) {
+      const onCopySuccess = function(e) {
         // button target
         const button = e.trigger;
         // don't keep focus
@@ -947,11 +1004,50 @@ Y = f(x)
         }, 1000);
         // clear code selection
         e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
       });
-      function tippyHover(el, contentFn) {
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
         const config = {
           allowHTML: true,
-          content: contentFn,
           maxWidth: 500,
           delay: 100,
           arrow: false,
@@ -961,8 +1057,17 @@ Y = f(x)
           interactive: true,
           interactiveBorder: 10,
           theme: 'light-border',
-          placement: 'bottom-start'
+          placement: 'bottom-start',
         };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
           config['offset'] = [0,0];
           config['maxWidth'] = 700;
         window.tippy(el, config); 
@@ -976,7 +1081,11 @@ Y = f(x)
           try { href = new URL(href).hash; } catch {}
           const id = href.replace(/^#\/?/, "");
           const note = window.document.getElementById(id);
-          return note.innerHTML;
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
         });
       }
       const findCites = (el) => {
