@@ -482,6 +482,17 @@ y = mx+c
 </ul></li>
 </ul>
 </section>
+<section id="saturated-model" class="slide level2">
+<h2>Saturated Model</h2>
+<ul>
+<li>What is a saturated model?</li>
+<li>A theoretical model where there are as many estimated parameters as data points.</li>
+<li>i.e., if you have 5 pairs of measurements for 5 variables.
+<ul>
+<li>and you use all 5, that is a saturated model.</li>
+</ul></li>
+</ul>
+</section>
 <section id="overfitting" class="slide level2">
 <h2>Overfitting</h2>
 <ul>
@@ -533,6 +544,242 @@ MSE = \frac{1}{n} * \sum_{i=1}^{n}(y_i - y_p)^2
 <p><span class="math display">\[
 RMSE = \sqrt{MSE}
 \]</span></p>
+<ol start="5" type="1">
+<li>Coefficient of Determination</li>
+</ol>
+<p><span class="math display">\[
+R^2 = \frac{Sum of Squared Residuals}{Sum of Squares Total}
+\]</span></p>
+</section>
+<section id="summary-regression-metrics" class="slide level2">
+<h2>Summary: Regression metrics</h2>
+<ul>
+<li><p>Mean Absolute Error = mean absolute differences</p></li>
+<li><p>Mean Squared Error = measures the variance of the residuals.</p></li>
+<li><p>Root Mean Squared Error = measures standard deviation of the residuals</p></li>
+<li><p>R-squared (value between 0 and 1) = how much variation in y is explained by your model.</p></li>
+<li><p>adjusted R-squared = because R^2 will go up with more variables i.e., overfit. adjusted R^2 penalises for having more predictor variables</p></li>
+</ul>
+</section>
+<section id="now-classification" class="slide level2">
+<h2>Now, Classification</h2>
+<ul>
+<li><p>Residuals –&gt; Deviance</p>
+<ul>
+<li>residual is specific to when y is continuous.</li>
+<li>deviance is a generalised term for residual.</li>
+</ul></li>
+<li><p>Deviance quantifies the difference between model and observations.</p></li>
+<li><p>Here y is 0 or 1.</p>
+<ul>
+<li>recall: LM $ y= mx+c $</li>
+</ul></li>
+</ul>
+</section>
+<section id="optional-linear-logistic-regression" class="slide level2">
+<h2>Optional: Linear – Logistic Regression</h2>
+<p>Converting y = 0 or 1 –&gt; means talking probability. Let’s call this probability p(x) p(x) = [0,1] $ 0&lt;= x &lt;= 1$</p>
+<ul>
+<li>A detour into odds vs.&nbsp;likelihood vs.&nbsp;probability</li>
+</ul>
+</section>
+<section id="odds-to-the-resuce" class="slide level2">
+<h2>Odds to the resuce</h2>
+<ul>
+<li><p>Odds vs probability</p></li>
+<li><p>Example: a horse race, your horse, 4 wins and 6 loses out of 10 race.</p>
+<ul>
+<li>What is the odds of winning?</li>
+<li>What is the probiability of winning?</li>
+</ul></li>
+</ul>
+</section>
+<section id="wins-6-loses-out-of-10-games" class="slide level2">
+<h2>4 wins, 6 loses out of 10 games</h2>
+<p>Odds of winning = 4 to 6 or 2:3 Probability of winning = 4 out of (4+6) = 4/10 = 0.4</p>
+<ul>
+<li>they are related via <span class="math display">\[
+Probability = \frac{Odds}{1+Odds}
+\]</span></li>
+</ul>
+<p>Proof: <span class="math display">\[
+P = \frac{2/3}{1+2/3} = \frac{2/3}{3/3+ 2/3} = \frac{2/3}{5/3} = 2/3 * 3/5 = 2/5 = 0.4
+\]</span></p>
+</section>
+<section id="odds-and-probability" class="slide level2">
+<h2>Odds and Probability</h2>
+<p><span class="math display">\[
+Odds = \frac{Probability}{1- Probability}
+\]</span></p>
+<p>Now that we know odds and probability are related how do we solve Logistic Regression where y is a probability. <span class="math display">\[
+y = mx + c , 0 &lt;=  y &lt;= 1
+\]</span></p>
+</section>
+<section id="need-to-title" class="slide level2">
+<h2>need to title</h2>
+<p>Lets convert LHS ‘y’ to odds.</p>
+<p><span class="math display">\[
+\frac{probability}{1-probability} = mx + c
+\]</span></p>
+<p>Odds by definition is &gt; 0 and can be any positive numbers.</p>
+<p>so lets take a log. (Why?) * Log does 2 things well + it converts odds of less than 1 to negative numbers, because log of 0 &lt; x &lt; 1 is always negative. + it falltes the square curve of odds.</p>
+</section>
+<section id="section" class="slide level2">
+<h2></h2>
+<p><span class="math display">\[
+y = mx + c
+p(x) = mx + c
+\frac{p(x)}{1-p(x)} = mx + c
+\]</span></p>
+<p>Take log to both sides <span class="math display">\[
+logit(\frac{p(x)}{1-p(x)}) = mx + c
+\]</span></p>
+<p>But, we want p(x) !, lets take an exponent!</p>
+</section>
+<section id="section-1" class="slide level2">
+<h2></h2>
+<p><span class="math display">\[
+\frac{p(x)}{1-p(x)} = e^{(mx + c)}
+\]</span></p>
+<p><span class="math display">\[
+p(x) = (1-p(x)) * e^{(mx+c)}
+\]</span></p>
+<p><span class="math display">\[
+p(x) = e^{mx+c} - p(x)(e^{mx+c})
+p(x) + p(x)(e^{mx+c})= e^{mx+c}
+p(x) (1 + e^{mx+c}) = e^{mx+c}
+\]</span></p>
+</section>
+<section id="section-2" class="slide level2">
+<h2></h2>
+<p><span class="math display">\[
+p(x) = \frac{e^{mx+c}}{1+e^{mx+c}}
+\]</span></p>
+<p>where we write z = mx+c</p>
+<p><span class="math display">\[
+p(x) = \frac{e^z}{1+e^z}
+\]</span></p>
+</section>
+<section id="you-now-know" class="slide level2">
+<h2>You now know</h2>
+<ul>
+<li>Odds vs.&nbsp;Probability and the link</li>
+<li>GLM formula for P(x)</li>
+</ul>
+<p>Next, * in regression, residuals conceptualises difference between prediction and true value. * we know that deviance is a generalised term for residual.</p>
+<ul>
+<li>what is a MSE in classification?</li>
+</ul>
+</section>
+<section id="log-loss" class="slide level2">
+<h2>Log Loss</h2>
+<p>Log loss – can roughly think of it as MSE.</p>
+<p>Log Loss is linked to likelihood function. Log loss = -1 * log of likelihood function</p>
+</section>
+<section id="likelihood" class="slide level2">
+<h2>Likelihood</h2>
+
+<img data-src="media/model.png" class="r-stretch"></section>
+<section id="likelihood-logloss-deviance." class="slide level2">
+<h2>Likelihood, Logloss, Deviance.</h2>
+<ul>
+<li>We want to minimise ‘deviance’</li>
+<li>Deviance = 2 * n * log loss Thus, log loss minimisation = deviance minimisation. Maximum likelihood estimation = statistics Minimising Log loss = machine learning</li>
+</ul>
+<p>Potatoe = potatoe</p>
+</section>
+<section id="main-take-home" class="slide level2">
+<h2>Main Take Home:</h2>
+<p>In regression, we use MSE, RMSE In classification, we use log loss.</p>
+<p>This is the key most important metric. The rest are just derivatives.</p>
+</section>
+<section id="note-on-cross-entropy-loss" class="slide level2">
+<h2>Note on Cross Entropy Loss</h2>
+<p>We have binary classification</p>
+<p>Now what do we do if we have multi class classification.</p>
+<p>Instead of yes / no, we have ‘car vs cat vs dog.’</p>
+<p>Here we generalise log loss -&gt; cross entropy loss.</p>
+</section>
+<section id="other-metrics" class="slide level2">
+<h2>Other Metrics</h2>
+<ol type="1">
+<li><p>Confusion Matrix a). accuracy b). Precision c). Recall d). F1 score e). Sensitivity and Specificity</p></li>
+<li><p>ROC curve a). Area under AUC or C-index b). Youdens Index</p></li>
+<li><p>Log Loss</p></li>
+<li><p>Brier Score</p></li>
+<li><p>Cohen’s Kappa</p></li>
+</ol>
+</section>
+<section id="confusion-matrix" class="slide level2">
+<h2>Confusion Matrix</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th></th>
+<th>Model Predicted as 1</th>
+<th>Model Predicted as 0</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>True value is 1</td>
+<td>A</td>
+<td>B</td>
+</tr>
+<tr class="even">
+<td>True value is 0</td>
+<td>C</td>
+<td>D</td>
+</tr>
+</tbody>
+</table>
+<p>Total sample size = A + B + C + D</p>
+<p>Total Cases = A + B</p>
+<p>Total not-cases = C + D</p>
+<p>Prevalence = total cases / total sample size</p>
+<p>True Positivie = A</p>
+<p>True Negative = D</p>
+<p>False Positive = C</p>
+<p>False Negative = B</p>
+</section>
+<section id="worked-example" class="slide level2">
+<h2>Worked Example</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th></th>
+<th>Model = 1</th>
+<th>Model = 0</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>True = 1</td>
+<td>80</td>
+<td>30</td>
+</tr>
+<tr class="even">
+<td>True = 0</td>
+<td>20</td>
+<td>40</td>
+</tr>
+</tbody>
+</table>
+<p>Total Sample size =</p>
+<p>Total Cases</p>
+<p>Prevalence</p>
+<p>True Positive</p>
+<p>True Negative</p>
+<p>False Positive</p>
+<p>False Negativie</p>
+<p>Sensitivity</p>
+<p>Specificity</p>
+</section>
+<section id="section-3" class="slide level2">
+<h2></h2>
+</section>
+<section id="references-and-reading-list" class="slide level2">
+<h2>References and Reading List</h2>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
