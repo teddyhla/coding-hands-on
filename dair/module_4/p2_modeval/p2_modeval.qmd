@@ -1,0 +1,185 @@
+---
+title: "Evaluate Classifier"
+author: "Teddy HLA"
+format: revealjs
+---
+
+## You fitted a model now what?
+
+* What do you do next?
+    + Depends on why you are building it for.
+* Consider
+    + how do we get people to use this model
+    + how do we generalise the findings to other datasets
+    + how do we have it approved by peers and by medico-legally 
+
+---
+
+## Learning Objectives
+
+* Why evaluate model and understand key metrics
+* Appreciate evaluation of regression tasks and transfer to classification tasks
+* Understand pros and cons of each metrics
+* Understand limitations of each metrics
+* More specifically, understand
+    + mean
+    + variance
+    + standard deviation
+    + standard error
+    + model deviance
+
+---
+
+## Task
+
+You are a botanist. You are interested in iris flowers and in particular its *petal width*
++ You want to build a model that can predict width.
++ Your helpful colleagues have collected some data. 
+
+![](media/petalwidth.png)
+
+---
+
+## Theoretical: Why evaluate models?
+
+* Models are not truth
+    + they help us apporoximate real world.
+
+* As a good scientist, you should have a **healthy** skepticism of your hypotheses
+* In extension, you should be skeptical of models you fitted.
+* Ergo, **null hypothesis**
+
+---
+
+## Null hypothesis and Model Evaluation: parallels
+
+* Hypothesis testing: is our finding 'by chance'
+    + Null Hypothesis: we are trying to prove us wrong.
+    + Scientific process: we start from null hypothesis
+* Similarly, we will start from evaluating **naive** model
+    + We will compare our models against **naive** models.
+* This allow us to *generalise* our model findings.
+
+---
+
+## Why is generalisation important?
+
+* Generalisation is efficient
+    + same for your own brain and for your code
+    + generalisation allow wider applicability
+    + e.g., dogs = 4 legged creature with a tail and likes to bark
+    + means you can transfer to all instances of dogs not just your pet
++ Saves you to memorise class animalDog vs. Dog0, Dog1, Dog2, etc...
+
+---
+
+## Generalisation in models
+
+* This means your model findings are not **memorised** by the model
+* This means your model findings are *applicable* in other settings.
+* It works in external data that is unseen.
+
+---
+
+## A good model?
+
+* A good model for one setting is different from others.
+    + e.g., screening test for cancer vs. confirmation test.
+* A good model is generalisable and thus, applicable.
+
+---
+
+## Refresher: regression vs. classification
+
+* Regression: 
+
+$$
+y = mx+c
+$$
+
++ Y is a continuous variable,
++ in classical statistics, it is called 'linear model(LM)'
+
+* Classification
+    + when y is a binary variable i.e, 0 or 1.
+    + in classifical statistics, generalised linear model (GLM)
+
+---
+
+## Theory: Residuals
+
+* Difference between **true value** and **predicted value** is called residual.
+    + residual can be positive or negative.
+* Here the dotted lines are residuals.
+
+![](media/residuals.png)
+
+* Common sense: the worse your model the bigger your residuals would be.
+    + what is the worst model? 
+
+---
+
+## Naive model
+
+* Worst model is your naive model. 
+    + mean of y saves you having to do the study to measure 'age'.
+    + mean of y will have the largest residual.
+    + in statistics that is your null model.
+
+* For regression, therefore you want a model that has a smallest residual. 
+    + but how small?
+
+---
+
+## Overfitting
+
+* worst model: i.e., mean model = very biased
+* "saturated" model: i.e., model with 0 residuals = very variant. 
+    + Why do you not want this?
+
+    + ans: generalisability
+
+* "saturated" model means it is overfitted. 
+    + in LM, it is an interpolated model.
+
+* Therefore ,you want somewhere between naive model and saturated model
+
+---
+
+## Naive vs. Optimal vs. Saturated model
+
+![](media/null.png)
+
+---
+
+## Metrics for Regression 
+
+1. Absolute Error, where $y_i$ is actual value and $y_p$ is predicted value.
+
+$$
+AE = |y_i - y_p|
+$$
+
+2. Mean Absolute Error, MAE 
+
+$$
+MAE = \frac{1}{n} * AE
+$$
+
+3. Mean Squared Error, MSE
+
+$$
+MSE = \frac{1}{n} * \sum_{i=1}^{n}(y_i - y_p)^2
+$$
+
+* looks scary but you take AE and square them (why?)
+* for each value of data from i=1 to n 
+* then divide by sample size
+
+4. Root Mean Squared Error, RMSE
+
+$$
+RMSE = \sqrt{MSE}
+$$
+
+5. Coefficient of Determination
